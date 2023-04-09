@@ -91,7 +91,7 @@ const ru: LocaleType = {
       FoundUpdate: (x: string) => `Найдена новая версия: ${x}`,
       GoToUpdate: "Обновить",
     },
-    SendKey: "Отправить ключ",
+    SendKey: "Отправить сообщение",
     Theme: "Тема",
     TightBorder: "По ширине экрана",
     SendPreviewBubble: "Отправлять превью сообщения",
