@@ -1,0 +1,27 @@
+name: update tag
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    
+jobs:
+  push_to_registry:
+    name: update tag
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: package-version
+      run: node -p -e '`VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
+    
+    - name: Tag new version
+      uses: pkgdeps/action-package-version-to-git-tag@v2.0.6
+      with:
+        github_token: ${{ secrets.ORG_PERSONAL_ACCESS_TOKEN }}
+        github_repo: ${{ github.repository }}
+        version: ${{ env.VERSION }}
+        git_commit_sha: ${{ github.sha }}
+        git_tag_prefix: "v"
