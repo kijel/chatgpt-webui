@@ -138,7 +138,7 @@ const DEFAULT_CONFIG: ChatConfig = {
   submitKey: SubmitKey.Enter as SubmitKey,
   avatar: "1f5ff",
   fontSize: 14,
-  theme: Theme.Dark as Theme,
+  theme: Theme.Auto as Theme,
   tightBorder: false,
   sendPreviewBubble: false,
 
