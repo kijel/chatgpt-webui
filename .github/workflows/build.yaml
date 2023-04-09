@@ -66,12 +66,14 @@ jobs:
           tags: | 
             ${{ env.ACTOR }}/${{ env.REPONAME }}:${{ env.VERSION }}
             ${{ env.ACTOR }}/${{ env.REPONAME }}:latest
-      - name: Update Service
-        uses: Jnqa/docker-updater@action
-        with:
-          DU_USERNAME: ${{ secrets.KJ_USERNAME }}
-          DU_PASSWORD: ${{ secrets.KJ_PASSWORD }}
-          DU_HOST: api.jnqa.fun
-          VERSION: ${{ env.VERSION }}
-          CONTAINER_PREFIX: kj-
-          CONTAINER_NAME: $(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')
+
+    # Disabled. Need to update service
+    #   - name: Update Service
+    #     uses: Jnqa/docker-updater@action
+    #     with:
+    #       DU_USERNAME: ${{ secrets.KJ_USERNAME }}
+    #       DU_PASSWORD: ${{ secrets.KJ_PASSWORD }}
+    #       DU_HOST: api.jnqa.fun
+    #       VERSION: ${{ env.VERSION }}
+    #       CONTAINER_PREFIX: kj-
+    #       CONTAINER_NAME: $(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')
